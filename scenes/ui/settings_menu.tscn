@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://bj0ek3hb6nuu5"]
+
+[ext_resource type="Script" uid="uid://bs016otcx27gu" path="res://scripts/SettingsMenu.gd" id="1_yu862"]
+[ext_resource type="Texture2D" uid="uid://dy4q4fw687nqr" path="res://Assets/Tiny Swords/UI Elements/UI Banners from the store page/Ribbons/Menu.png" id="2_mishw"]
+[ext_resource type="Texture2D" uid="uid://bu1xai6b4dv54" path="res://Assets/Tiny Swords/UI Elements/UI Elements/Banners/Banner_Slots.png" id="3_h271e"]
+[ext_resource type="Texture2D" uid="uid://dus7pr0kbwvqf" path="res://Assets/Tiny Swords/UI Elements/UI Elements/Icons/Icon_12.png" id="4_yu862"]
+[ext_resource type="Texture2D" uid="uid://c0kkas1xma6ou" path="res://Assets/Tiny Swords/UI Elements/UI Elements/Icons/Icon_11.png" id="5_ywggk"]
+[ext_resource type="PackedScene" uid="uid://datovbh08ftjl" path="res://scenes/ui/controls_card.tscn" id="6_ywggk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6eus"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_giedc"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+texture = ExtResource("3_h271e")
+texture_margin_top = 10.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="SettingsMenu" type="Control" unique_id=243877672]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 493.0
+offset_top = 207.0
+offset_right = 493.0
+offset_bottom = 207.0
+script = ExtResource("1_yu862")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=247037373]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 484.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mishw")
+region_rect = Rect2(0, 0, 361, 340)
+patch_margin_top = 106
+patch_margin_bottom = 72
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1887469802]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 14.0
+offset_right = 158.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 14
+text = "Configuracion"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=513468331]
+propagate_maximum_size = false
+layout_mode = 1
+offset_left = 24.0
+offset_top = 62.0
+offset_right = 144.0
+offset_bottom = 318.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_f6eus")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=612972323]
+layout_mode = 2
+theme_override_constants/separation = 38
+accessibility_region = true
+
+[node name="AudioContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=760461801]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/AudioContainer" unique_id=1766133917]
+layout_mode = 2
+
+[node name="AudioButton" type="Button" parent="PanelContainer/VBoxContainer/AudioContainer/HBoxContainer" unique_id=408601952]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxTexture_giedc")
+text = " Audio "
+alignment = 2
+
+[node name="Control" type="PanelContainer" parent="PanelContainer/VBoxContainer/AudioContainer/HBoxContainer" unique_id=1840267010]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer/AudioContainer/HBoxContainer/Control" unique_id=406146143]
+position = Vector2(80, 20)
+scale = Vector2(0.40625036, 0.43749994)
+texture = ExtResource("4_yu862")
+
+[node name="ControlsContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=929509488]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ControlsContainer" unique_id=2136730829]
+layout_mode = 2
+
+[node name="ControlsButton" type="Button" parent="PanelContainer/VBoxContainer/ControlsContainer/HBoxContainer" unique_id=1655169980]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxTexture_giedc")
+text = " Controles "
+
+[node name="Control" type="PanelContainer" parent="PanelContainer/VBoxContainer/ControlsContainer/HBoxContainer" unique_id=1114110051]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer/ControlsContainer/HBoxContainer/Control" unique_id=1451769763]
+position = Vector2(55, 20)
+scale = Vector2(0.40625036, 0.43749994)
+texture = ExtResource("5_ywggk")
+
+[node name="ControlsCard" parent="." unique_id=355510544 instance=ExtResource("6_ywggk")]
+z_index = 5
+layout_mode = 0
+offset_left = -91.0
+offset_top = 3.0
+offset_right = -91.0
+offset_bottom = 3.0

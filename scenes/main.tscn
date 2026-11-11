@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dbtxt5vyhx260" path="res://scenes/ui/phase_banner.tscn" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://b7p4xmawpr1jk" path="res://scenes/ui/unit_info_card.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://dpo6bw7dhf42x" path="res://scripts/CombatPreview.gd" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://de3p6y00poetq" path="res://scenes/ui/pause_menu.tscn" id="10_choun"]
 
 [node name="Main" type="Node2D" unique_id=1396697347]
 script = ExtResource("1_jyhfs")
@@ -52,5 +53,11 @@ offset_left = -379.0
 offset_right = -379.0
 grow_horizontal = 0
 pivot_offset = Vector2(-15, 15)
+
+[node name="PauseMenu" parent="UI_Layer" unique_id=243877672 instance=ExtResource("10_choun")]
+offset_left = 487.0
+offset_top = 120.0
+offset_right = 487.0
+offset_bottom = 120.0
 
 [node name="ScreenTransition" type="CanvasLayer" parent="." unique_id=645680718]

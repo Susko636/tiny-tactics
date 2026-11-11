@@ -1,0 +1,144 @@
+[gd_scene format=4 uid="uid://8vxpnrthyntn"]
+
+[ext_resource type="Texture2D" uid="uid://bll8ohhaq4crs" path="res://Assets/Tiny Swords/UI Elements/UI Elements/Swords/Sword.png" id="1_lppu5"]
+[ext_resource type="Script" uid="uid://cpsyx6w827sam" path="res://scripts/MainMenu.gd" id="1_w3h5g"]
+[ext_resource type="Texture2D" uid="uid://d078nki67jxpw" path="res://Assets/Tiny Swords/UI Elements/UI Elements/Swords/Sword_r.png" id="2_6xkr4"]
+[ext_resource type="Texture2D" uid="uid://yxb1qnkm06wa" path="res://Assets/Tiny Swords/Terrain/Tileset/Water Background color.png" id="3_b8wrl"]
+[ext_resource type="TileSet" uid="uid://dm10wjjyebs2t" path="res://game_tileset.tres" id="4_s01ir"]
+[ext_resource type="PackedScene" uid="uid://clroswe6r5yct" path="res://scenes/world/props/tree_1.tscn" id="5_w3h5g"]
+[ext_resource type="PackedScene" uid="uid://fl27n8eou3br" path="res://scenes/world/props/rock_water_1.tscn" id="6_maniu"]
+[ext_resource type="PackedScene" uid="uid://cfdbks7tcrnwa" path="res://scenes/world/props/rock_water_2.tscn" id="7_t74b8"]
+[ext_resource type="PackedScene" uid="uid://b3745p4bosl46" path="res://scenes/world/props/bush_2.tscn" id="8_i73i7"]
+[ext_resource type="PackedScene" uid="uid://ccwirkto5284c" path="res://scenes/world/structures/castle.tscn" id="9_e1bfw"]
+[ext_resource type="PackedScene" uid="uid://b3tgwo67kd3mc" path="res://scenes/world/structures/tower.tscn" id="10_fvxt4"]
+[ext_resource type="PackedScene" uid="uid://crjgo2ymna3kn" path="res://scenes/world/structures/house3.tscn" id="11_xxm8u"]
+[ext_resource type="PackedScene" uid="uid://n01heykbpo4n" path="res://scenes/ui/menu.tscn" id="12_6xkr4"]
+[ext_resource type="Shader" uid="uid://b58tw2ub5o0n2" path="res://blur.gdshader" id="12_s01ir"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_giedc"]
+shader = ExtResource("12_s01ir")
+shader_parameter/lod = 2.0
+
+[node name="MainMenu" type="Control" unique_id=480615050]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w3h5g")
+
+[node name="Background" type="Node2D" parent="." unique_id=1722527556]
+
+[node name="Back" type="Sprite2D" parent="Background" unique_id=1717758888]
+z_index = -1
+position = Vector2(592, 336)
+scale = Vector2(19.5, 11.5)
+texture = ExtResource("3_b8wrl")
+
+[node name="Layer1" type="TileMapLayer" parent="Background" unique_id=1861916665]
+tile_map_data = PackedByteArray("AAANAAkAAQACAAIAAAANAAgAAQABAAEAAAANAAcAAQABAAEAAAANAAYAAQABAAEAAAANAAUAAQABAAEAAAAMAAkAAQABAAIAAAAMAAgAAQABAAEAAAAMAAcAAQABAAEAAAAMAAYAAQABAAEAAAAMAAUAAQABAAEAAAALAAkAAQABAAIAAAALAAgAAQABAAEAAAALAAcAAQABAAEAAAALAAYAAQABAAEAAAALAAUAAQABAAEAAAAKAAkAAQABAAIAAAAKAAgAAQABAAEAAAAKAAcAAQABAAEAAAAKAAYAAQABAAEAAAAKAAUAAQABAAEAAAAJAAkAAQABAAIAAAAJAAgAAQABAAEAAAAJAAcAAQABAAEAAAAJAAYAAQABAAEAAAAJAAUAAQABAAAAAAAIAAkAAQABAAIAAAAIAAgAAQABAAEAAAAIAAcAAQABAAEAAAAIAAYAAQABAAEAAAAIAAUAAQABAAAAAAAHAAkAAQABAAIAAAAHAAgAAQABAAEAAAAHAAcAAQABAAEAAAAHAAYAAQABAAEAAAAHAAUAAQAAAAAAAAAGAAkAAQABAAIAAAAGAAgAAQABAAEAAAAGAAcAAQABAAEAAAAGAAYAAQABAAAAAAAFAAkAAQABAAIAAAAFAAgAAQABAAEAAAAFAAcAAQABAAEAAAAEAAkAAQAAAAIAAAAEAAgAAQABAAEAAAAEAAcAAQABAAEAAAAEAAYAAQABAAEAAAAEAAUAAQACAAAAAAAQAAYAAQACAAIAAAAQAAUAAQACAAAAAAAPAAYAAQABAAEAAAAPAAUAAQABAAEAAAAPAAQAAQACAAAAAAAOAAYAAQABAAEAAAAOAAUAAQABAAEAAAAOAAQAAQABAAEAAAAOAAMAAQACAAAAAAANAAQAAQABAAEAAAANAAMAAQABAAAAAAAMAAQAAQABAAEAAAAMAAMAAQABAAAAAAALAAQAAQABAAEAAAALAAMAAQABAAAAAAAKAAQAAQAAAAEAAAAKAAMAAQAAAAAAAAADAAcAAQABAAEAAAADAAYAAQABAAEAAAADAAUAAQABAAAAAAACAAcAAQABAAIAAAACAAYAAQABAAEAAAACAAUAAQABAAAAAAABAAcAAQAAAAIAAAABAAYAAQAAAAEAAAABAAUAAQAAAAAAAAAPAAcAAQACAAEAAAAPAAgAAQACAAIAAAAOAAgAAQABAAIAAAAOAAcAAQABAAEAAAADAAgAAQAAAAIAAAAFAAYAAQABAAAAAAA=")
+tile_set = ExtResource("4_s01ir")
+
+[node name="Layer2" type="TileMapLayer" parent="Background" unique_id=1957207288]
+z_index = 2
+tile_map_data = PackedByteArray("AAACAAMAAQAFAAUAAAADAAMAAQAGAAUAAAAEAAMAAQAGAAUAAAAFAAMAAQAHAAUAAAAHAAcAAQAGAAQAAAAIAAcAAQAGAAQAAAAJAAcAAQAGAAQAAAAKAAcAAQAGAAQAAAALAAcAAQAGAAQAAAAHAAYAAQAFAAIAAAAIAAUAAQAGAAEAAAAJAAUAAQAGAAEAAAAKAAUAAQAGAAEAAAALAAUAAQAGAAEAAAALAAYAAQAGAAIAAAAKAAYAAQAGAAIAAAAJAAYAAQAGAAIAAAAIAAYAAQAGAAIAAAAJAAQAAQAGAAAAAAAKAAQAAQAGAAAAAAALAAQAAQAGAAAAAAAMAAQAAQAHAAAAAAAMAAUAAQAGAAEAAAAMAAYAAQAHAAIAAAAMAAcAAQAHAAQAAAANAAUAAQADAAQAAAACAAIAAQAFAAIAAAADAAIAAQAGAAIAAAAEAAIAAQAGAAIAAAAFAAIAAQAHAAIAAAAFAAEAAQAHAAAAAAAEAAEAAQAGAAAAAAADAAEAAQAGAAAAAAACAAEAAQAFAAAAAAAIAAQAAQAGAAAAAAAHAAUAAQAFAAEAAAAHAAQAAQAFAAAAAAANAAYAAQADAAUAAAA=")
+tile_set = ExtResource("4_s01ir")
+
+[node name="Layer3" type="TileMapLayer" parent="Background" unique_id=893880427]
+z_index = 1
+tile_map_data = PackedByteArray("AAACAAMAAAABAAEAAAADAAMAAAABAAEAAAACAAQAAAABAAIAAAABAAMAAAAAAAEAAAACAAIAAAABAAEAAAADAAQAAAABAAIAAAADAAIAAAABAAAAAAAEAAMAAAABAAEAAAAEAAQAAAABAAIAAAAEAAIAAAABAAAAAAAFAAMAAAABAAEAAAAFAAQAAAABAAIAAAAFAAIAAAABAAEAAAAGAAMAAAACAAEAAAAHAAUAAAABAAEAAAAIAAUAAAACAAEAAAAHAAYAAAABAAEAAAAGAAUAAAAAAAEAAAAHAAQAAAABAAAAAAAIAAYAAAACAAEAAAAGAAYAAAAAAAEAAAAHAAcAAAABAAEAAAAIAAcAAAABAAEAAAAGAAcAAAAAAAEAAAAHAAgAAAABAAIAAAAIAAgAAAABAAIAAAAJAAcAAAABAAEAAAAJAAgAAAABAAIAAAAJAAYAAAABAAAAAAAKAAcAAAABAAEAAAAKAAgAAAABAAIAAAAKAAYAAAABAAAAAAALAAcAAAABAAEAAAALAAgAAAABAAIAAAALAAYAAAABAAAAAAAMAAcAAAABAAEAAAAMAAgAAAABAAIAAAAMAAYAAAABAAEAAAANAAcAAAACAAEAAAAMAAUAAAABAAAAAAAGAAIAAAACAAEAAAABAAIAAAAAAAEAAAA=")
+tile_set = ExtResource("4_s01ir")
+
+[node name="Structures" type="Node2D" parent="Background" unique_id=2131136660]
+z_index = 4
+
+[node name="Tree1" parent="Background/Structures" unique_id=1351152724 instance=ExtResource("5_w3h5g")]
+position = Vector2(192, 64)
+
+[node name="Tree2" parent="Background/Structures" unique_id=1172292757 instance=ExtResource("5_w3h5g")]
+position = Vector2(960, 256)
+
+[node name="RockWater" parent="Background/Structures" unique_id=325842694 instance=ExtResource("6_maniu")]
+position = Vector2(128, 576)
+
+[node name="RockWater3" parent="Background/Structures" unique_id=1745258380 instance=ExtResource("6_maniu")]
+position = Vector2(1088, 512)
+
+[node name="RockWater2" parent="Background/Structures" unique_id=904255129 instance=ExtResource("7_t74b8")]
+position = Vector2(384, 320)
+
+[node name="RockWater4" parent="Background/Structures" unique_id=1255811453 instance=ExtResource("7_t74b8")]
+position = Vector2(704, 128)
+
+[node name="Bush2" parent="Background/Structures" unique_id=1087430676 instance=ExtResource("8_i73i7")]
+position = Vector2(256, 320)
+
+[node name="Bush3" parent="Background/Structures" unique_id=613733475 instance=ExtResource("8_i73i7")]
+position = Vector2(704, 576)
+
+[node name="Castle" parent="Background/Structures" unique_id=842460247 instance=ExtResource("9_e1bfw")]
+position = Vector2(512, 256)
+
+[node name="Tower" parent="Background/Structures" unique_id=1469564828 instance=ExtResource("10_fvxt4")]
+position = Vector2(128, 384)
+
+[node name="House3" parent="Background/Structures" unique_id=600733731 instance=ExtResource("11_xxm8u")]
+position = Vector2(320, 512)
+
+[node name="BlurOverlay" type="ColorRect" parent="." unique_id=2043072052]
+z_index = 4
+material = SubResource("ShaderMaterial_giedc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1156.0
+offset_bottom = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sword1" type="NinePatchRect" parent="." unique_id=301530675]
+z_index = 5
+layout_mode = 0
+offset_left = 706.0
+offset_top = 16.000002
+offset_right = 905.7067
+offset_bottom = 128.0904
+scale = Vector2(1.7375479, 1.3828125)
+texture = ExtResource("1_lppu5")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Label" type="Label" parent="Sword1" unique_id=1750247177]
+layout_mode = 0
+offset_left = 84.601974
+offset_top = 35.435024
+offset_right = 156.60197
+offset_bottom = 80.43503
+theme_override_colors/font_color = Color(0.1452662, 0.1452662, 0.1452662, 1)
+theme_override_font_sizes/font_size = 28
+text = "TINY"
+
+[node name="Sword2" type="NinePatchRect" parent="." unique_id=2146929252]
+z_index = 5
+layout_mode = 0
+offset_left = 1150.0
+offset_top = 291.0
+offset_right = 1349.5002
+offset_bottom = 403.30923
+rotation = 3.1415927
+scale = Vector2(1.7375479, 1.3828125)
+texture = ExtResource("2_6xkr4")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Label2" type="Label" parent="Sword2" unique_id=139826963]
+layout_mode = 0
+offset_left = 179.56342
+offset_top = 75.93218
+offset_right = 304.56342
+offset_bottom = 120.93218
+rotation = -3.1415927
+theme_override_colors/font_color = Color(0.1452662, 0.1452662, 0.1452662, 1)
+theme_override_font_sizes/font_size = 28
+text = "TACTICS"
+
+[node name="Menu" parent="." unique_id=243877672 instance=ExtResource("12_6xkr4")]
+layout_mode = 1

@@ -9,6 +9,7 @@ extends Node
 @onready var unit_info_card: UnitInfoCard = $UI_Layer/UnitInfoCard
 @onready var speech_bubble: SpeechBubble = $UI_Layer/SpeechBubble
 @onready var phase_banner: PhaseBanner = $UI_Layer/PhaseBanner
+@onready var pause_menu: PauseMenu = $UI_Layer/PauseMenu
 
 var current_level_index: int = 0
 var battle_map: BattleMap = null
@@ -21,6 +22,10 @@ func _ready() -> void:
 
 	if scene_container.has_node("BattleMap"):
 		scene_container.get_node("BattleMap").queue_free()
+
+	if pause_menu:
+		pause_menu.restart_requested.connect(_on_pause_restart_requested)
+		pause_menu.main_menu_requested.connect(_on_pause_main_menu_requested)
 
 	load_level(current_level_index)
 
@@ -128,6 +133,14 @@ func _on_match_lost() -> void:
 	phase_banner.show_end_game_banner("DERROTA...", false)
 
 func _on_phase_changed(phase: StringName) -> void:
+	
 	if phase_banner:
 		unit_info_card.clear()
 		phase_banner.play_phase_banner(phase)
+
+func _on_pause_restart_requested() -> void:
+	load_level(current_level_index)
+
+func _on_pause_main_menu_requested() -> void:
+	
+	get_tree().change_scene_to_file("res://levels/main_menu.tscn")
