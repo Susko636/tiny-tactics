@@ -25,3 +25,9 @@ script = ExtResource("4_bqfjd")
 
 [node name="AttackState" type="Node2D" parent="StateMachine" unique_id=301703771]
 script = ExtResource("5_lbhm6")
+
+[node name="PlayerSfx" type="AudioStreamPlayer" parent="." unique_id=1541921732]
+bus = &"player"
+
+[node name="EnemySfx" type="AudioStreamPlayer" parent="." unique_id=1261727295]
+bus = &"enemy"

@@ -8,6 +8,14 @@ signal defeated
 
 enum Faction { PLAYER, ENEMY, ALLY }
 
+@onready var player_sfx: AudioStreamPlayer = $PlayerSfx
+@onready var enemy_sfx: AudioStreamPlayer = $EnemySfx
+
+@export_group("sfx")
+@export var hit_sfx: AudioStream
+@export var attack_sfx: AudioStream
+@export var throw_sfx: AudioStream
+
 @export_group("Identidad")
 @export var character_name: String = "Recluta"
 @export var faction: Faction = Faction.PLAYER
@@ -84,6 +92,7 @@ func play_attack_animation(target_world_pos: Vector2) -> void:
 		tween.tween_property(self, "global_position", original_pos + dir, 0.10).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "global_position", original_pos, 0.10).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 		await tween.finished
+	_attack_audio()
 
 	state_machine.transition_to(&"idlestate")
 	attack_finished.emit()
@@ -94,6 +103,8 @@ func take_damage(amount: int) -> bool:
 	damage_taken.emit(current_hp)
 
 	await play_hit_effect()
+	_hit_audio()
+	
 	var is_dead: bool = current_hp <= 0
 	
 	if is_dead:
@@ -111,7 +122,7 @@ func play_hit_effect() -> void:
 	
 	var tween: Tween = create_tween().set_parallel(false)
 	
-	target_visual.modulate = Color(2.5, 0.4, 0.4) # tono rojizo brillante
+	target_visual.modulate = Color(2.5, 0.4, 0.4) 
 	
 	var shake_tween: Tween = create_tween().set_parallel(false)
 	shake_tween.tween_property(target_visual, "position", original_pos + Vector2(-4, 0), 0.04)
@@ -132,3 +143,21 @@ func play_death_effect() -> void:
 	tween.tween_property(target_visual, "scale", Vector2(0.8, 1.2), 0.2)
 	
 	await tween.finished
+
+func _hit_audio():
+	
+	var sfx = _get_sfx_player()
+	sfx.stream = hit_sfx
+	sfx.play()
+
+func _attack_audio():
+	
+	var sfx = _get_sfx_player()
+	sfx.stream = attack_sfx
+	sfx.play()
+
+func _get_sfx_player() -> AudioStreamPlayer:
+	
+	if faction == Faction.PLAYER:
+		return player_sfx
+	return enemy_sfx

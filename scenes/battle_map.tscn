@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://dm10wjjyebs2t" path="res://game_tileset.tres" id="4_qlait"]
 [ext_resource type="Texture2D" uid="uid://yxb1qnkm06wa" path="res://Assets/Tiny Swords/Terrain/Tileset/Water Background color.png" id="4_t3v4a"]
 [ext_resource type="TileSet" uid="uid://ckg4vsmiv286v" path="res://decoration_tileset.tres" id="6_umtsg"]
+[ext_resource type="AudioStream" uid="uid://bbi1isaq2c37h" path="res://Audio/Forest_Ambience.mp3" id="8_umtsg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5utsm"]
 texture = ExtResource("2_5utsm")
@@ -112,3 +113,9 @@ y_sort_enabled = true
 
 [node name="Enemys" type="Node2D" parent="." unique_id=219018256]
 y_sort_enabled = true
+
+[node name="Background" type="AudioStreamPlayer" parent="." unique_id=1105708714]
+stream = ExtResource("8_umtsg")
+autoplay = true
+bus = &"music"
+parameters/looping = true

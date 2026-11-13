@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cvbsjefyy5m44"]
+
+[ext_resource type="Script" uid="uid://oeckmd4soknr" path="res://scripts/AudioCard.gd" id="1_8qt1k"]
+[ext_resource type="Texture2D" uid="uid://cqnkkvdx1dwni" path="res://Assets/Tiny Swords/UI Elements/UI Elements/Banners/Banner.png" id="1_u0n7f"]
+
+[node name="AudioCard" type="Control" unique_id=355510544]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8qt1k")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1418241208]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer" unique_id=157995274]
+custom_minimum_size = Vector2(360, 260)
+layout_mode = 2
+texture = ExtResource("1_u0n7f")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/NinePatchRect" unique_id=1907511721]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 32.0
+offset_right = 345.0
+offset_bottom = 191.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer" unique_id=1201257091]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=649280441]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0023445897, 0.00234459, 0.00234459, 1)
+text = "AUDIO"
+
+[node name="MasterContainer" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=416066727]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MasterContainer" unique_id=834365551]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "General "
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MasterContainer" unique_id=741977077]
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 5)
+max_value = 1.0
+step = 0.05
+value = 0.1
+
+[node name="MusicContainer" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=962394501]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MusicContainer" unique_id=1596179262]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Musica "
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MusicContainer" unique_id=1617418445]
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 5)
+max_value = 1.0
+step = 0.05
+value = 0.1
+
+[node name="SFXContainer" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=378959554]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/SFXContainer" unique_id=1486993301]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Efectos "
+
+[node name="SFXSlider" type="HSlider" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/SFXContainer" unique_id=1211714451]
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 5)
+max_value = 1.0
+step = 0.05
+value = 0.1

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://4c5tlmyusvd"]
 
 [ext_resource type="PackedScene" uid="uid://vh216qpxc3sx" path="res://scenes/world/units/unit.tscn" id="1_6htbe"]
+[ext_resource type="AudioStream" uid="uid://cynppklebfxj5" path="res://Audio/Units/damage_taken.mp3" id="2_1dcyt"]
+[ext_resource type="AudioStream" uid="uid://b32j8swo8i5ta" path="res://Audio/Attacks/sword.10.ogg" id="2_rjnw5"]
 [ext_resource type="Texture2D" uid="uid://dwhgaoke8e6th" path="res://Assets/Tiny Swords/Units/Blue Units/Warrior/Warrior_Attack1.png" id="2_vouwq"]
 [ext_resource type="Texture2D" uid="uid://ntmmmn3p6j66" path="res://Assets/Tiny Swords/Units/Blue Units/Warrior/Warrior_Guard.png" id="3_0svgh"]
 [ext_resource type="Texture2D" uid="uid://c2he240anqnab" path="res://Assets/Tiny Swords/Units/Blue Units/Warrior/Warrior_Idle.png" id="4_n6u5u"]
@@ -198,6 +200,8 @@ animations = [{
 }]
 
 [node name="Warrior" unique_id=176907120 instance=ExtResource("1_6htbe")]
+hit_sfx = ExtResource("2_1dcyt")
+attack_sfx = ExtResource("2_rjnw5")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=530722957]
 position = Vector2(0, -32)

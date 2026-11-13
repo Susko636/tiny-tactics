@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://vh216qpxc3sx" path="res://scenes/world/units/unit.tscn" id="1_mwjcn"]
 [ext_resource type="Texture2D" uid="uid://duyigec6prony" path="res://Assets/Tiny Swords/Enemys/Goblings/Torch/Blue/Torch_Blue.png" id="2_b832v"]
+[ext_resource type="AudioStream" uid="uid://c54syvtbou12j" path="res://Audio/Units/goblin_hit.wav" id="2_qgvj7"]
+[ext_resource type="AudioStream" uid="uid://b3b2g1isyma2d" path="res://Audio/Attacks/torch_attack.wav" id="3_nhvyl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lp03k"]
 atlas = ExtResource("2_b832v")
@@ -155,12 +157,13 @@ animations = [{
 }]
 
 [node name="GoblinTorch" unique_id=176907120 instance=ExtResource("1_mwjcn")]
+hit_sfx = ExtResource("2_qgvj7")
+attack_sfx = ExtResource("3_nhvyl")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=530722957]
 position = Vector2(0, -33)
 sprite_frames = SubResource("SpriteFrames_yi81j")
-animation = &"walk"
+animation = &"attack"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
+frame_progress = 0.0
 centered = true

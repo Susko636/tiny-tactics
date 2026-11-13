@@ -2,7 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://vh216qpxc3sx" path="res://scenes/world/units/unit.tscn" id="1_fwsbj"]
 [ext_resource type="Texture2D" uid="uid://q7dbr38128av" path="res://Assets/Tiny Swords/Units/Blue Units/Archer/Archer_Shoot.png" id="2_51frq"]
+[ext_resource type="AudioStream" uid="uid://cynppklebfxj5" path="res://Audio/Units/damage_taken.mp3" id="2_aoo48"]
+[ext_resource type="AudioStream" uid="uid://c3qqafjtlsuu4" path="res://Audio/Attacks/shoot.ogg" id="2_j7665"]
 [ext_resource type="Texture2D" uid="uid://carm5t8pqr3mk" path="res://Assets/Tiny Swords/Units/Blue Units/Archer/Archer_Idle.png" id="3_bkmky"]
+[ext_resource type="AudioStream" uid="uid://cn5k601k3m00e" path="res://Audio/Attacks/arrow_impact.wav" id="3_ui7es"]
 [ext_resource type="Texture2D" uid="uid://d14tp76nvcwfc" path="res://Assets/Tiny Swords/Units/Blue Units/Archer/Archer_Run.png" id="4_5d5jq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4qr6"]
@@ -150,6 +153,9 @@ animations = [{
 }]
 
 [node name="Archer" unique_id=176907120 instance=ExtResource("1_fwsbj")]
+hit_sfx = ExtResource("2_aoo48")
+attack_sfx = ExtResource("3_ui7es")
+throw_sfx = ExtResource("2_j7665")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=530722957]
 position = Vector2(0, -32)

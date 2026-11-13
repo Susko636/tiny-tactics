@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dus7pr0kbwvqf" path="res://Assets/Tiny Swords/UI Elements/UI Elements/Icons/Icon_12.png" id="4_yu862"]
 [ext_resource type="Texture2D" uid="uid://c0kkas1xma6ou" path="res://Assets/Tiny Swords/UI Elements/UI Elements/Icons/Icon_11.png" id="5_ywggk"]
 [ext_resource type="PackedScene" uid="uid://datovbh08ftjl" path="res://scenes/ui/controls_card.tscn" id="6_ywggk"]
+[ext_resource type="PackedScene" uid="uid://cvbsjefyy5m44" path="res://scenes/ui/audio_card.tscn" id="7_ngbvi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6eus"]
 
@@ -116,3 +117,6 @@ offset_left = -91.0
 offset_top = 3.0
 offset_right = -91.0
 offset_bottom = 3.0
+
+[node name="AudioCard" parent="." unique_id=1698128046 instance=ExtResource("7_ngbvi")]
+layout_mode = 0

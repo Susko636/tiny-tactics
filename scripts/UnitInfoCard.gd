@@ -25,6 +25,7 @@ var _monitored_unit: Unit = null
 
 func display_unit(unit: Unit) -> void:
 	
+	UISoundManager.play_info_card()
 	if unit == null:
 		clear()
 		return

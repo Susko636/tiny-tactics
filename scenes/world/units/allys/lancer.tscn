@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://vh216qpxc3sx" path="res://scenes/world/units/unit.tscn" id="1_hkokq"]
 [ext_resource type="Texture2D" uid="uid://ni7oqiy8pbyx" path="res://Assets/Tiny Swords/Units/Blue Units/Lancer/Lancer_Right_Attack.png" id="2_315ku"]
+[ext_resource type="AudioStream" uid="uid://cynppklebfxj5" path="res://Audio/Units/damage_taken.mp3" id="2_dt5y4"]
+[ext_resource type="AudioStream" uid="uid://b32j8swo8i5ta" path="res://Audio/Attacks/sword.10.ogg" id="2_eghga"]
 [ext_resource type="Texture2D" uid="uid://c4vqych2v2ons" path="res://Assets/Tiny Swords/Units/Blue Units/Lancer/Lancer_Right_Defence.png" id="3_3god2"]
 [ext_resource type="Texture2D" uid="uid://d0sfonmncpbah" path="res://Assets/Tiny Swords/Units/Blue Units/Lancer/Lancer_Idle.png" id="4_f2nui"]
 [ext_resource type="Texture2D" uid="uid://b7jygwrv7nbi2" path="res://Assets/Tiny Swords/Units/Blue Units/Lancer/Lancer_Run.png" id="5_msqww"]
@@ -219,6 +221,8 @@ animations = [{
 }]
 
 [node name="Lancer" unique_id=176907120 instance=ExtResource("1_hkokq")]
+hit_sfx = ExtResource("2_dt5y4")
+attack_sfx = ExtResource("2_eghga")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=530722957]
 position = Vector2(0, -31)

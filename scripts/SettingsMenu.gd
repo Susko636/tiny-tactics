@@ -8,15 +8,16 @@ signal controls_selected
 @onready var audio_button: Button = $PanelContainer/VBoxContainer/AudioContainer/HBoxContainer/AudioButton
 @onready var controls_button: Button = $PanelContainer/VBoxContainer/ControlsContainer/HBoxContainer/ControlsButton
 @onready var panel_container: PanelContainer = $PanelContainer
-@onready var controls_card: ControlsModal = $ControlsCard
+@onready var controls_card: ControlsCard = $ControlsCard
+@onready var audio_card: AudioCard = $AudioCard
 
 func _ready() -> void:
 	
 	audio_button.pressed.connect(_on_audio_pressed)
 	controls_button.pressed.connect(_on_controls_pressed)
 	
-	if controls_card:
-		controls_card.closed.connect(_on_controls_closed)
+	controls_card.closed.connect(_on_controls_closed)
+	audio_card.closed.connect(_on_audio_closed)
 
 func open() -> void:
 	show()
@@ -39,7 +40,10 @@ func _input(event: InputEvent) -> void:
 		close()
 
 func _on_audio_pressed() -> void:
+	
 	audio_selected.emit()
+	if audio_card:
+		audio_card.open()
 
 func _on_controls_pressed() -> void:
 	
@@ -51,3 +55,8 @@ func _on_controls_closed() -> void:
 	
 	if controls_button:
 		controls_button.grab_focus()
+
+func _on_audio_closed() -> void:
+	
+	if audio_button:
+		audio_button.grab_focus()

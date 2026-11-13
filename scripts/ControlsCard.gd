@@ -1,4 +1,4 @@
-class_name ControlsModal
+class_name ControlsCard
 extends Control
 
 signal closed

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://crjgo2ymna3kn" path="res://scenes/world/structures/house3.tscn" id="11_xxm8u"]
 [ext_resource type="PackedScene" uid="uid://n01heykbpo4n" path="res://scenes/ui/menu.tscn" id="12_6xkr4"]
 [ext_resource type="Shader" uid="uid://b58tw2ub5o0n2" path="res://blur.gdshader" id="12_s01ir"]
+[ext_resource type="AudioStream" uid="uid://b1p7q12x1ti7v" path="res://Audio/main_menu.ogg" id="15_w3h5g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_giedc"]
 shader = ExtResource("12_s01ir")
@@ -142,3 +143,9 @@ text = "TACTICS"
 
 [node name="Menu" parent="." unique_id=243877672 instance=ExtResource("12_6xkr4")]
 layout_mode = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=322182037]
+stream = ExtResource("15_w3h5g")
+autoplay = true
+bus = &"music"
+parameters/looping = true
