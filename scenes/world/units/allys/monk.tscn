@@ -128,7 +128,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_haf3x")
 }],
 "loop": 0,
-"name": &"heal",
+"name": &"attack",
 "speed": 12.0
 }, {
 "frames": [{
@@ -179,7 +179,6 @@ attack_sfx = ExtResource("2_146b1")
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=530722957]
 position = Vector2(0, -31)
 sprite_frames = SubResource("SpriteFrames_qghf0")
-animation = &"heal"
-frame = 10
-frame_progress = 1.0
+animation = &"attack"
+frame_progress = 0.0
 centered = true

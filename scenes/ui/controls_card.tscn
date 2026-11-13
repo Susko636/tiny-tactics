@@ -14,11 +14,9 @@ offset_right = 128.0
 offset_bottom = 128.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer" unique_id=157995274]
-custom_minimum_size = Vector2(360, 260)
+custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 texture = ExtResource("2_v0w0i")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/NinePatchRect" unique_id=1907511721]
 layout_mode = 0
@@ -29,10 +27,12 @@ offset_bottom = 191.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer" unique_id=1201257091]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=649280441]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0023445897, 0.00234459, 0.00234459, 1)
+theme_override_font_sizes/font_size = 22
 text = "CONTROLES"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=416066727]
@@ -41,11 +41,13 @@ layout_mode = 2
 [node name="LabelAction" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=834365551]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Mover Cursor :"
 
 [node name="LabelKey" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=514940798]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "AWSD / Flechas"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=251700845]
@@ -54,11 +56,13 @@ layout_mode = 2
 [node name="LabelAction" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2127117626]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Mover Menu :"
 
 [node name="LabelKey" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1021863787]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "AWSD / Flechas"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=218548772]
@@ -67,11 +71,13 @@ layout_mode = 2
 [node name="LabelAction" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1471993321]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Aceptar :"
 
 [node name="LabelKey" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1240406480]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = ", / 1"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=380344638]
@@ -80,11 +86,13 @@ layout_mode = 2
 [node name="LabelAction" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=2007984108]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Cancelar :"
 
 [node name="LabelKey" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1757857823]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = ". / 2"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=143464929]
@@ -93,9 +101,11 @@ layout_mode = 2
 [node name="LabelAction" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1127492793]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Pausa :"
 
 [node name="LabelKey" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=691335814]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "P / Esc"

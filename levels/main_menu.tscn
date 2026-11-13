@@ -110,11 +110,11 @@ axis_stretch_vertical = 2
 [node name="Label" type="Label" parent="Sword1" unique_id=1750247177]
 layout_mode = 0
 offset_left = 84.601974
-offset_top = 35.435024
+offset_top = 36.88135
 offset_right = 156.60197
-offset_bottom = 80.43503
+offset_bottom = 81.88135
 theme_override_colors/font_color = Color(0.1452662, 0.1452662, 0.1452662, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "TINY"
 
 [node name="Sword2" type="NinePatchRect" parent="." unique_id=2146929252]
@@ -133,16 +133,20 @@ axis_stretch_vertical = 2
 [node name="Label2" type="Label" parent="Sword2" unique_id=139826963]
 layout_mode = 0
 offset_left = 179.56342
-offset_top = 75.93218
+offset_top = 74.48584
 offset_right = 304.56342
-offset_bottom = 120.93218
+offset_bottom = 119.48584
 rotation = -3.1415927
 theme_override_colors/font_color = Color(0.1452662, 0.1452662, 0.1452662, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "TACTICS"
 
 [node name="Menu" parent="." unique_id=243877672 instance=ExtResource("12_6xkr4")]
 layout_mode = 1
+offset_left = 445.0
+offset_top = 190.0
+offset_right = 445.0
+offset_bottom = 190.0
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=322182037]
 stream = ExtResource("15_w3h5g")

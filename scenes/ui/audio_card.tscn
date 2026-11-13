@@ -14,11 +14,9 @@ offset_right = 128.0
 offset_bottom = 128.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer" unique_id=157995274]
-custom_minimum_size = Vector2(360, 260)
+custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 texture = ExtResource("1_u0n7f")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/NinePatchRect" unique_id=1907511721]
 layout_mode = 0
@@ -29,11 +27,12 @@ offset_bottom = 191.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer" unique_id=1201257091]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 18
 
 [node name="Label" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=649280441]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0023445897, 0.00234459, 0.00234459, 1)
+theme_override_font_sizes/font_size = 22
 text = "AUDIO"
 
 [node name="MasterContainer" type="HBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=416066727]
@@ -42,6 +41,7 @@ layout_mode = 2
 [node name="MasterLabel" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MasterContainer" unique_id=834365551]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "General "
 
 [node name="MasterSlider" type="HSlider" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MasterContainer" unique_id=741977077]
@@ -59,6 +59,7 @@ layout_mode = 2
 [node name="MusicLabel" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MusicContainer" unique_id=1596179262]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Musica "
 
 [node name="MusicSlider" type="HSlider" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MusicContainer" unique_id=1617418445]
@@ -76,6 +77,7 @@ layout_mode = 2
 [node name="SFXLabel" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/SFXContainer" unique_id=1486993301]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Efectos "
 
 [node name="SFXSlider" type="HSlider" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/SFXContainer" unique_id=1211714451]

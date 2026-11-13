@@ -27,6 +27,10 @@ UISoundManager="*uid://cjijys3op7ich"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[gui]
+
+theme/custom_font="uid://b5nmrolrppf40"
+
 [input]
 
 ui_accept={

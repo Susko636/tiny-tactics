@@ -35,8 +35,8 @@ script = ExtResource("1_cx0sj")
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=247037373]
 layout_mode = 0
-offset_right = 382.0
-offset_bottom = 516.0
+offset_right = 520.0
+offset_bottom = 576.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_cghgw")
 region_rect = Rect2(0, 0, 361, 340)
@@ -48,15 +48,15 @@ axis_stretch_vertical = 2
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=513468331]
 propagate_maximum_size = false
 layout_mode = 1
-offset_left = 27.0
-offset_top = 65.0
-offset_right = 147.0
-offset_bottom = 321.0
+offset_left = 28.0
+offset_top = 64.0
+offset_right = 219.0
+offset_bottom = 320.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_f6eus")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=612972323]
 layout_mode = 2
-theme_override_constants/separation = 46
+theme_override_constants/separation = 50
 accessibility_region = true
 
 [node name="PlayContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=760461801]
@@ -70,17 +70,17 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxTexture_giedc")
-text = "  Jugar "
+text = "Jugar"
 alignment = 2
 
 [node name="Control" type="PanelContainer" parent="PanelContainer/VBoxContainer/PlayContainer/HBoxContainer" unique_id=1840267010]
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer/PlayContainer/HBoxContainer/Control" unique_id=406146143]
-position = Vector2(75, 19)
-scale = Vector2(0.40625036, 0.43749994)
+position = Vector2(110.99999, 26.000004)
+scale = Vector2(0.6875001, 0.71875006)
 texture = ExtResource("4_e11en")
 
 [node name="SettingsContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=1731041793]
@@ -94,19 +94,20 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxTexture_giedc")
-text = " Configuracion"
+text = "Configuracion"
 
 [node name="Control" type="PanelContainer" parent="PanelContainer/VBoxContainer/SettingsContainer/HBoxContainer" unique_id=842456993]
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer/SettingsContainer/HBoxContainer/Control" unique_id=1711728441]
-position = Vector2(24, 20)
-scale = Vector2(0.40625036, 0.43749994)
+position = Vector2(16.49997, 25.499992)
+scale = Vector2(0.7031244, 0.7031247)
 texture = ExtResource("5_288ov")
 
 [node name="SettingsMenu" parent="." unique_id=2030069528 instance=ExtResource("6_tub5d")]
+visible = false
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0

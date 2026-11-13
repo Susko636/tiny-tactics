@@ -24,7 +24,6 @@ func transition_to(target_state_name: StringName) -> void:
 	
 	var state_key: StringName = StringName(target_state_name.to_lower())
 	if not states.has(state_key):
-		push_warning("El estado '%s' no existe en la StateMachine de %s" % [state_key, get_parent().name])
 		return
 
 	if current_state:

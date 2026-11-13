@@ -24,16 +24,16 @@ axis_stretch_vertical = 2
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
-offset_left = 513.0
-offset_top = 126.0
-offset_right = 513.0
-offset_bottom = 126.0
+offset_left = 471.0
+offset_top = 118.0
+offset_right = 471.0
+offset_bottom = 118.0
 script = ExtResource("1_8fwbo")
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=247037373]
 layout_mode = 0
-offset_right = 312.0
-offset_bottom = 745.0
+offset_right = 498.0
+offset_bottom = 876.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_6tw0m")
 region_rect = Rect2(0, 0, 361, 340)
@@ -44,24 +44,25 @@ axis_stretch_vertical = 2
 
 [node name="Label" type="Label" parent="." unique_id=1887469802]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 9.0
-offset_right = 108.0
-offset_bottom = 32.0
+offset_left = 94.0
+offset_top = 1.0
+offset_right = 197.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 32
 text = "PAUSA"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=513468331]
 propagate_maximum_size = false
 layout_mode = 1
-offset_left = 17.0
-offset_top = 59.0
-offset_right = 137.0
-offset_bottom = 315.0
+offset_left = 25.0
+offset_top = 62.0
+offset_right = 209.0
+offset_bottom = 380.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_f6eus")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=612972323]
 layout_mode = 2
-theme_override_constants/separation = 34
+theme_override_constants/separation = 40
 accessibility_region = true
 
 [node name="ResumeContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=760461801]
@@ -75,7 +76,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_giedc")
 text = " Reanudar "
 alignment = 2
@@ -84,8 +85,8 @@ alignment = 2
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer/ResumeContainer/HBoxContainer/Control" unique_id=406146143]
-position = Vector2(32, 19)
-scale = Vector2(0.40625036, 0.43749994)
+position = Vector2(51, 24.999996)
+scale = Vector2(0.5937505, 0.6249998)
 texture = ExtResource("3_f6eus")
 
 [node name="RestartContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=929509488]
@@ -99,7 +100,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_giedc")
 text = " Reiniciar "
 
@@ -107,8 +108,8 @@ text = " Reiniciar "
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer/RestartContainer/HBoxContainer/Control" unique_id=1451769763]
-position = Vector2(37, 20)
-scale = Vector2(0.40625036, 0.43749994)
+position = Vector2(56, 27.000015)
+scale = Vector2(0.5937505, 0.6562503)
 texture = ExtResource("4_4inpj")
 
 [node name="SettingsContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=1731041793]
@@ -122,7 +123,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_giedc")
 text = " Configuracion"
 
@@ -130,8 +131,8 @@ text = " Configuracion"
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer/SettingsContainer/HBoxContainer/Control" unique_id=1711728441]
-position = Vector2(7, 20)
-scale = Vector2(0.40625036, 0.43749994)
+position = Vector2(10.5, 27)
+scale = Vector2(0.67187506, 0.68749976)
 texture = ExtResource("5_8fwbo")
 
 [node name="QuitContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=1796082057]
@@ -145,7 +146,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_giedc")
 text = " Salir "
 
@@ -153,15 +154,13 @@ text = " Salir "
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer/QuitContainer/HBoxContainer/Control" unique_id=942844090]
-position = Vector2(64, 19)
-scale = Vector2(0.40625036, 0.43749994)
+position = Vector2(99, 26)
+scale = Vector2(0.6875001, 0.68749976)
 texture = ExtResource("6_2rlsb")
 
 [node name="SettingsMenu" parent="." unique_id=1549901403 instance=ExtResource("8_2rlsb")]
-process_mode = 0
-visible = false
 layout_mode = 0
-offset_left = 17.0
-offset_top = 59.0
-offset_right = 137.0
-offset_bottom = 315.0
+offset_left = -13.0
+offset_top = 69.0
+offset_right = 107.0
+offset_bottom = 325.0
