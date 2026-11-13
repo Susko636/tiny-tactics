@@ -2,11 +2,17 @@ class_name CombatResolver
 extends RefCounted
 
 class CombatResult:
+	
 	var defender_died: bool = false
 	var attacker_died: bool = false
 
 static func execute_combat(attacker: Unit, defender: Unit) -> CombatResult:
+	
 	var result: CombatResult = CombatResult.new()
+	
+	if attacker.is_healer:
+		await _apply_heal(attacker, defender)
+		return result
 	
 	result.defender_died = await _apply_strike(attacker, defender)
 	if result.defender_died:
@@ -16,14 +22,14 @@ static func execute_combat(attacker: Unit, defender: Unit) -> CombatResult:
 		var diff: Vector2i = attacker.grid_coord - defender.grid_coord
 		var distance: int = abs(diff.x) + abs(diff.y)
 		
-		if distance == 1:
+		if distance == defender.max_range and !defender.is_healer:
 			result.attacker_died = await _apply_strike(defender, attacker)
 	
 	return result
 
 static func _apply_strike(striker: Unit, target: Unit) -> bool:
 	
-	if not is_instance_valid(striker) or not is_instance_valid(target):
+	if !is_instance_valid(striker) or !is_instance_valid(target):
 		return false
 		
 	await striker.play_attack_animation(target.global_position)
@@ -33,3 +39,12 @@ static func _apply_strike(striker: Unit, target: Unit) -> bool:
 	
 	await striker.get_tree().create_timer(0.25).timeout
 	return is_dead
+	
+static func _apply_heal(healer: Unit, target: Unit) -> void:
+	
+	if not is_instance_valid(healer) or !is_instance_valid(target):
+		return
+		
+	await healer.play_attack_animation(target.global_position)
+	await target.receive_heal(healer.strength)
+	await healer.get_tree().create_timer(0.25).timeout

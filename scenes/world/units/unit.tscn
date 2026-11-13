@@ -1,10 +1,97 @@
 [gd_scene format=3 uid="uid://vh216qpxc3sx"]
 
 [ext_resource type="Script" uid="uid://bg2j6k1g461b0" path="res://scripts/Unit.gd" id="1_o7ajc"]
+[ext_resource type="Texture2D" uid="uid://gimhwekg8vpn" path="res://Assets/Tiny Swords/Units/Blue Units/Monk/Heal_Effect.png" id="2_hc1bt"]
 [ext_resource type="Script" uid="uid://kk32m70bedyl" path="res://scripts/unitState/UnitStateMachine.gd" id="2_mvd5b"]
 [ext_resource type="Script" uid="uid://b2o1gqyo0io2w" path="res://scripts/unitState/IdleState.gd" id="3_nfpyq"]
 [ext_resource type="Script" uid="uid://cascdeuut8vas" path="res://scripts/unitState/WalkState.gd" id="4_bqfjd"]
 [ext_resource type="Script" uid="uid://cas7upge1ih4k" path="res://scripts/unitState/AttackState.gd" id="5_lbhm6"]
+[ext_resource type="Script" uid="uid://bmv02vacutito" path="res://scripts/unitState/HealState.gd" id="7_v2l01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2l01"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbhl2"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga042"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdfns"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w3uh"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jluyu"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw1xa"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eb8w"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7kw1"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx0o8"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(1728, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uk3w"]
+atlas = ExtResource("2_hc1bt")
+region = Rect2(1920, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_giedc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2l01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbhl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga042")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdfns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w3uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jluyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw1xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eb8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7kw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx0o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uk3w")
+}],
+"loop": 0,
+"name": &"heal",
+"speed": 11.0
+}]
 
 [node name="Unit" type="Node2D" unique_id=176907120]
 script = ExtResource("1_o7ajc")
@@ -13,6 +100,12 @@ script = ExtResource("1_o7ajc")
 animation = &""
 frame_progress = 0.78522044
 centered = false
+
+[node name="HealEffect" type="AnimatedSprite2D" parent="." unique_id=1194129265]
+visible = false
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_giedc")
+animation = &"heal"
 
 [node name="StateMachine" type="Node2D" parent="." unique_id=1142180245]
 script = ExtResource("2_mvd5b")
@@ -25,6 +118,9 @@ script = ExtResource("4_bqfjd")
 
 [node name="AttackState" type="Node2D" parent="StateMachine" unique_id=301703771]
 script = ExtResource("5_lbhm6")
+
+[node name="HealState" type="Node2D" parent="StateMachine" unique_id=930765675]
+script = ExtResource("7_v2l01")
 
 [node name="PlayerSfx" type="AudioStreamPlayer" parent="." unique_id=1541921732]
 bus = &"player"

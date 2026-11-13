@@ -25,13 +25,18 @@ enum Faction { PLAYER, ENEMY, ALLY }
 @export var strength: int = 5
 @export var defense: int = 2
 @export var move_range: int = 3
+@export var min_range: int = 1
+@export var max_range: int = 1
 @export var is_leader: bool = false
+@export var is_healer: bool = false
 
 var unit_class: String = str(get_name())
 var current_hp: int = 10
 var grid_coord: Vector2i = Vector2i.ZERO
+var last_target_world_pos: Vector2 = Vector2.ZERO
 
 @onready var sprite: AnimatedSprite2D = get_node_or_null("AnimatedSprite2D")
+@onready var heal_effect_sprite: AnimatedSprite2D = get_node_or_null("HealEffect")
 @onready var state_machine: UnitStateMachine = $StateMachine
 
 const CELL_CENTER_OFFSET: Vector2 = Vector2(32, 32)
@@ -78,6 +83,7 @@ func follow_path(path: Array[Vector2i]) -> void:
 
 func play_attack_animation(target_world_pos: Vector2) -> void:
 	
+	last_target_world_pos = target_world_pos
 	if sprite:
 		sprite.flip_h = target_world_pos.x < global_position.x
 
@@ -93,9 +99,28 @@ func play_attack_animation(target_world_pos: Vector2) -> void:
 		tween.tween_property(self, "global_position", original_pos, 0.10).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 		await tween.finished
 	_attack_audio()
-
 	state_machine.transition_to(&"idlestate")
 	attack_finished.emit()
+
+func receive_heal(amount: int) -> void:
+	
+	current_hp = mini(max_hp, current_hp + amount)
+	damage_taken.emit(current_hp)
+	
+	await play_heal_animation()
+	
+func play_heal_animation() -> void:
+	
+	state_machine.transition_to(&"healstate")
+	
+	if heal_effect_sprite and heal_effect_sprite.sprite_frames and heal_effect_sprite.sprite_frames.has_animation("heal"):
+		await heal_effect_sprite.animation_finished
+	
+	state_machine.transition_to(&"idlestate")
+	attack_finished.emit()
+
+func is_distance_in_range(distance: int) -> bool:
+	return distance >= min_range and distance <= max_range
 
 func take_damage(amount: int) -> bool:
 	
@@ -143,6 +168,20 @@ func play_death_effect() -> void:
 	tween.tween_property(target_visual, "scale", Vector2(0.8, 1.2), 0.2)
 	
 	await tween.finished
+
+func is_valid_action_target(target: Unit) -> bool:
+	
+	if not is_instance_valid(target) or target == self:
+		return false
+		
+	if is_healer:
+		var same_side: bool = (target.faction == faction) or (faction == Faction.PLAYER and target.faction == Faction.ALLY)
+		return same_side
+	else:
+		if faction == Faction.ENEMY:
+			return target.faction == Faction.PLAYER or target.faction == Faction.ALLY
+		else:
+			return target.faction == Faction.ENEMY
 
 func _hit_audio():
 	

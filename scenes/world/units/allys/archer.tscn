@@ -160,7 +160,7 @@ throw_sfx = ExtResource("2_j7665")
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=530722957]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_gyrga")
-animation = &"walk"
-frame = 3
+animation = &"attack"
+frame = 7
 frame_progress = 1.0
 centered = true

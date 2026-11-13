@@ -133,20 +133,53 @@ func _on_cursor_cancel(selected_cell: Vector2i) -> void:
 	if current_state:
 		current_state.on_cursor_cancel(selected_cell)
 
-func has_adjacent_enemy(cell: Vector2i) -> bool:
-	return get_adjacent_enemies(cell).size() > 0
-
-func get_adjacent_enemies(cell: Vector2i) -> Array[Vector2i]:
+func get_cells_at_range(origin: Vector2i, attack_range: int) -> Array[Vector2i]:
 	
-	var enemies: Array[Vector2i] = []
-	var directions: Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
-	for dir in directions:
-		var neighbor: Vector2i = cell + dir
-		if units_by_cell.has(neighbor):
-			var occupier: Unit = units_by_cell[neighbor]
-			if occupier.faction == Unit.Faction.ENEMY:
-				enemies.append(neighbor)
-	return enemies
+	var cells: Array[Vector2i] = []
+	for dx in range(-attack_range, attack_range + 1):
+		var dy_abs: int = attack_range - abs(dx)
+		if dy_abs == 0:
+			var c := origin + Vector2i(dx, 0)
+			if Grid.is_within_bounds(c, map_size):
+				cells.append(c)
+		else:
+			var c1 := origin + Vector2i(dx, dy_abs)
+			var c2 := origin + Vector2i(dx, -dy_abs)
+			if Grid.is_within_bounds(c1, map_size):
+				cells.append(c1)
+			if Grid.is_within_bounds(c2, map_size):
+				cells.append(c2)
+	return cells
+
+func has_adjacent_enemy(cell: Vector2i, unit: Unit = selected_unit) -> bool:
+	return get_adjacent_enemies(cell, unit).size() > 0
+
+func get_adjacent_enemies(cell: Vector2i, unit: Unit = selected_unit) -> Array[Vector2i]:
+	
+	var valid_targets: Array[Vector2i] = []
+	if not is_instance_valid(unit):
+		return valid_targets
+		
+	var candidate_cells: Array[Vector2i] = get_cells_at_range(cell, unit.max_range)
+	
+	for target_cell in candidate_cells:
+		if units_by_cell.has(target_cell):
+			var occupier: Unit = units_by_cell[target_cell]
+			if unit.is_valid_action_target(occupier):
+				valid_targets.append(target_cell)
+	return valid_targets
+	
+func _get_valid_attack_spots_for_target(target_cell: Vector2i, reachable: Dictionary, moving_unit: Unit) -> Array[Vector2i]:
+	
+	var spots: Array[Vector2i] = []
+	var attack_range: int = moving_unit.max_range if is_instance_valid(moving_unit) else 1
+	
+	var candidate_spots: Array[Vector2i] = get_cells_at_range(target_cell, attack_range)
+	for spot in candidate_spots:
+		if reachable.has(spot):
+			if not units_by_cell.has(spot) or units_by_cell[spot] == moving_unit:
+				spots.append(spot)
+	return spots
 
 func execute_action(action: String) -> void:
 	
@@ -451,17 +484,6 @@ func get_units_of_faction(faction: Unit.Faction) -> Array[Unit]:
 		if is_instance_valid(unit) and unit.faction == faction:
 			result.append(unit)
 	return result
-
-func _get_valid_attack_spots_for_target(target_cell: Vector2i, reachable: Dictionary, moving_unit: Unit) -> Array[Vector2i]:
-	
-	var spots: Array[Vector2i] = []
-	var directions: Array[Vector2i] = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
-	for dir in directions:
-		var neighbor: Vector2i = target_cell + dir
-		if reachable.has(neighbor):
-			if not units_by_cell.has(neighbor) or units_by_cell[neighbor] == moving_unit:
-				spots.append(neighbor)
-	return spots
 
 func _get_closest_unit(origin: Vector2i, targets: Array[Unit]) -> Unit:
 	

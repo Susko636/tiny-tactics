@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://clroswe6r5yct" path="res://scenes/world/props/tree_1.tscn" id="5_cg8v6"]
 [ext_resource type="PackedScene" uid="uid://fl27n8eou3br" path="res://scenes/world/props/rock_water_1.tscn" id="6_cg8v6"]
 [ext_resource type="PackedScene" uid="uid://cfdbks7tcrnwa" path="res://scenes/world/props/rock_water_2.tscn" id="7_j0sdw"]
+[ext_resource type="PackedScene" uid="uid://ehb8qk8k07gr" path="res://scenes/world/units/allys/archer.tscn" id="7_xw3ee"]
 [ext_resource type="PackedScene" uid="uid://c4bvenq4v48oa" path="res://scenes/world/units/enemys/goblin_torch.tscn" id="8_j0sdw"]
+[ext_resource type="PackedScene" uid="uid://ca8v7lq66em3t" path="res://scenes/world/units/allys/monk.tscn" id="8_l0eo6"]
 
 [sub_resource type="Resource" id="Resource_xw3ee"]
 script = ExtResource("2_qdeet")
@@ -59,6 +61,7 @@ is_leader = true
 position = Vector2(256, 512)
 
 [node name="Lancer" parent="PlayerSpawn/Spawn1" index="0" unique_id=1582883986 instance=ExtResource("3_qdeet")]
+position = Vector2(128, 64)
 character_name = "Lancero"
 move_range = 5
 
@@ -71,6 +74,24 @@ max_hp = 12
 strength = 6
 defense = 4
 move_range = 4
+
+[node name="Spawn3" parent="PlayerSpawn" index="3" unique_id=129860690]
+position = Vector2(320, 704)
+
+[node name="Archer" parent="PlayerSpawn/Spawn3" index="0" unique_id=337122511 instance=ExtResource("7_xw3ee")]
+character_name = "Arquero"
+min_range = 3
+max_range = 3
+
+[node name="Spawn4" parent="PlayerSpawn" index="4" unique_id=2011776180]
+position = Vector2(256, 704)
+
+[node name="Monk" parent="PlayerSpawn/Spawn4" index="0" unique_id=734983 instance=ExtResource("8_l0eo6")]
+position = Vector2(64, -64)
+character_name = "Monje"
+min_range = 2
+max_range = 2
+is_healer = true
 
 [node name="GoblinHouse" parent="Props/Structures" parent_id_path=PackedInt32Array(2053149053) index="0" unique_id=138457721 instance=ExtResource("2_mllcm")]
 position = Vector2(1920, 1088)
@@ -185,7 +206,7 @@ position = Vector2(1344, 384)
 z_index = 6
 
 [node name="GoblinTorch" parent="Enemys" index="0" unique_id=2115232808 instance=ExtResource("8_j0sdw")]
-position = Vector2(512, 640)
+position = Vector2(640, 640)
 character_name = "Gobling"
 faction = 1
 strength = 4

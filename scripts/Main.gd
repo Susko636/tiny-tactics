@@ -10,7 +10,6 @@ extends Node
 @onready var speech_bubble: SpeechBubble = $UI_Layer/SpeechBubble
 @onready var phase_banner: PhaseBanner = $UI_Layer/PhaseBanner
 @onready var pause_menu: PauseMenu = $UI_Layer/PauseMenu
-@onready var ui: AudioStreamPlayer = $UI
 
 var current_level_index: int = 0
 var battle_map: BattleMap = null
@@ -146,7 +145,3 @@ func _on_pause_restart_requested() -> void:
 func _on_pause_main_menu_requested() -> void:
 	
 	get_tree().change_scene_to_file("res://levels/main_menu.tscn")
-
-func _open_info_audio():
-	ui.stream = ui_card_info
-	ui.play()
